@@ -10,9 +10,9 @@
 
 ## Gallery
 
-| Chapter 1 | Frontmatter | Script |
+| Frontmatter | Chapter example | Script |
 | --- | --- | --- |
-| <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_output.png" width="250"> |
+| <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_output.png" width="250"> |
 
 ## Style Guide
 
@@ -21,9 +21,9 @@
 
 ## Requirements
 
-* Created on macos using zsh
-* Requires JRE
-* Requires a local copy of the epubchecker .jar file
+* Scripts written on macos using zsh
+* Requires JRE (setup script will install)
+* Requires a local copy of the epubchecker .jar file (setup script will download)
 
 ## Setup
 
