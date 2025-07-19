@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+<head>
+    <meta content="urn:uuid:00000000-0000-0000-0000-000000000000" name="dtb:uid"/>
+    <meta content="1" name="dtb:depth"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+</head>
+<docTitle><text>The Book's Title</text></docTitle>
+<docAuthor><text>Author, Name</text></docAuthor>
+  <navMap>
+    <!-- <navPoint id="navpoint1" playOrder="1">
+      <navLabel>
+        <text>Cover</text>
+      </navLabel>
+      <content src="text/cover.xhtml"/>
+    </navPoint> -->
+    <navPoint id="navpoint1" playOrder="1">
+      <navLabel>
+        <text>Front Matter</text>
+      </navLabel>
+      <content src="text/01_frontmatter.xhtml"/>
+    </navPoint>
+    <!-- <navPoint id="navpoint3" playOrder="3">
+      <navLabel>
+        <text>Dedication</text>
+      </navLabel>
+      <content src="text/dedication.xhtml"/>
+    </navPoint> -->
+    <!-- <navPoint id="navpoint4" playOrder="4">
+      <navLabel>
+        <text>Foreword</text>
+      </navLabel>
+      <content src="text/foreword.xhtml"/>
+    </navPoint> -->
+    <!-- <navPoint id="navpoint5" playOrder="5">
+      <navLabel>
+        <text>Introduction</text>
+      </navLabel>
+      <content src="text/introduction.xhtml"/>
+    </navPoint> -->
+    <navPoint id="navpoint2" playOrder="2">
+      <navLabel>
+        <text>Chapter 1</text>
+      </navLabel>
+      <content src="text/11_chapter01.xhtml"/>
+    </navPoint>
+    <navPoint id="navpoint3" playOrder="3">
+      <navLabel>
+        <text>Chapter 2</text>
+      </navLabel>
+      <content src="text/12_chapter02.xhtml"/>
+    </navPoint>
+    <navPoint id="navpoint4" playOrder="4">
+      <navLabel>
+        <text>Chapter 3</text>
+      </navLabel>
+      <content src="text/13_chapter03.xhtml"/>
+    </navPoint>
+     <navPoint id="navpoint5" playOrder="5">
+      <navLabel>
+        <text>Chapter 4</text>
+      </navLabel>
+      <content src="text/14_chapter04.xhtml"/>
+    </navPoint>
+    <!-- <navPoint id="navpoint9" playOrder="9">
+      <navLabel>
+        <text>End notes</text>
+      </navLabel>
+      <content src="text/endnotes.xhtml"/>
+    </navPoint>
+    <navPoint id="navpoint10" playOrder="10">
+      <navLabel>
+        <text>Acknowledgements</text>
+      </navLabel>
+      <content src="text/acknowledgements.xhtml"/>
+    </navPoint> -->
+  </navMap>
+</ncx>

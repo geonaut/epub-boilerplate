@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.author {
+    font-size: 1.25em;
+    margin-top: 2em;
+    margin-bottom: 1.75em;
+}
+
+.title {
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.subtitle {
+    font-size: 1.125em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.chapter {
+    text-align: center;
+    margin-top: 1.125em;
+    margin-bottom: 1.75em;
+}

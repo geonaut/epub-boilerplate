@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+RED='\e[31m'
+GREEN='\e[32m'
+YELLOW='\e[33m'
+BLUE='\e[34m'
+RESET='\e[0m'
+
+build/timestamp.sh
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}Timestamp set${RESET}"
+else
+    echo -e "${RED}Timestamp failed${RESET}"
+    exit 1
+fi
+
+build/wc.sh book.epub
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}Wordcount set${RESET}"
+else
+    echo -e "${RED}Word count failed${RESET}"
+    exit 1
+fi
+
+rm -f book.epub
+cd book
+zip -q0X "../book.epub" mimetype
+zip -qXr9D "../book.epub" * -x "*.git*" -x "*.DS_Store"
+
+echo -e "${GREEN}ePub generated OK${RESET}"
+
+if [[ $1 = "-c" ]]; then
+    ../bin/Java/jdk-24.0.2.jdk/Contents/Home/bin/java -jar ../bin/epubcheck-5.2.1/epubcheck.jar ../book.epub
+else
+    echo -e "${YELLOW}Skipping ePub check...${RESET}"
+fi
+
+echo -e "${GREEN}Script complete${RESET}"
+

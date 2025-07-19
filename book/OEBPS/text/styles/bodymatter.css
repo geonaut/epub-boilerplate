@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+h1, h2 {
+    text-align: center;
+}
+
+.chapter {
+    text-align: center;
+    margin-top: 1.75em;
+    margin-bottom: 2.5em;
+}
+
+.chapter-1-2 {
+    text-align: center;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
+}
+
+.chapter-2-2 {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 2.25em;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p + p {
+    text-indent: 1.125em;
+}
+
+
+aside {
+    font-size: 0.8125em;
+}
+
+aside p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}

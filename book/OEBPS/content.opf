@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:identifier id="pub-id">urn:uuid:00000000-0000-0000-0000-000000000000</dc:identifier>
+        <meta property="dcterms:modified">2019-07-25T18:00:00Z</meta>
+        <dc:source>https://en.wikipedia.org/wiki/EPUB</dc:source>
+        <dc:language>en</dc:language>
+        <dc:title id="title">The Book's Title</dc:title>
+            <meta refines="#title" property="title-type">main</meta>
+            <meta refines="#title" property="file-as">Book's Title, The</meta>
+        <dc:title id="subtitle">Secondary Title</dc:title>
+            <meta refines="#subtitle" property="title-type">subtitle</meta>
+        <dc:creator id="creator">The Book's Author</dc:creator>
+            <meta refines="#creator" property="role" scheme="marc:relators">aut</meta>
+            <meta refines="#creator" property="file-as">Author, Name</meta>
+        <dc:description xml:lang="en">Very good book about everything what is in The Universe</dc:description>
+        <dc:subject>Novel</dc:subject>
+        <dc:subject>Dark Ages</dc:subject>
+        <dc:subject id="bisac1">FICTION / Literary</dc:subject>
+            <meta refines="#bisac1" property="authority">BISAC</meta>
+            <meta refines="#bisac1" property="term">FIC019000</meta>
+        <meta id="series" property="belongs-to-collection">My Books Collection</meta>
+            <meta refines="#series" property="collection-type">series</meta>
+            <meta refines="#series" property="group-position">1</meta>
+            <meta refines="#series" property="dcterms:identifier">my-id</meta>
+        <dc:publisher>Self-publishing</dc:publisher>
+        <dc:date>2017-03-01</dc:date>
+        <dc:identifier>urn:isbn:0000000000000</dc:identifier>
+        <dc:identifier>urn:goodreads:00000</dc:identifier>
+        <dc:identifier>https://github.com/geonaut</dc:identifier>
+        <!-- <meta property="schema:numberOfPages">10</meta>
+        <meta property="schema:wordCount">100</meta> -->
+        <meta name="cover" content="cover.image"/>
+    </metadata>
+
+  <manifest>
+    <!-- <item href="Images/cover.jpg" id="cover.jpg" media-type="image/jpeg" /> -->
+    <!-- <item href="text/00_cover.xhtml" id="cover" media-type="application/xhtml+xml" /> -->
+    <item href="toc.xhtml" id="toc" media-type="application/xhtml+xml" properties="nav"/>
+    <item href="text/styles/base.css" id="base-css" media-type="text/css" />
+    <item href="text/styles/frontmatter.css" id="frontmatter-css" media-type="text/css" />
+    <item href="text/styles/bodymatter.css" id="bodymatter-css" media-type="text/css" />
+    <item href="text/01_frontmatter.xhtml" id="frontmatter" media-type="application/xhtml+xml" />
+    <!-- <item href="text/02_dedication.xhtml" id="dedication" media-type="application/xhtml+xml" /> -->
+    <!-- <item href="text/02_toc.xhtml" id="toc" media-type="application/xhtml+xml" /> -->
+    <!-- <item href="text/foreword.xhtml" id="foreword" media-type="application/xhtml+xml" /> -->
+    <!-- <item href="text/introduction.xhtml" id="introduction" media-type="application/xhtml+xml" /> -->
+    <item href="text/11_chapter01.xhtml" id="chapter-1" media-type="application/xhtml+xml" />
+    <item href="text/12_chapter02.xhtml" id="chapter-2" media-type="application/xhtml+xml" />
+    <item href="text/13_chapter03.xhtml" id="chapter-3" media-type="application/xhtml+xml" />
+    <item href="text/14_chapter04.xhtml" id="chapter-4" media-type="application/xhtml+xml" />
+    <!-- <item href="text/endnotes.xhtml" id="endnotes" media-type="application/xhtml+xml" /> -->
+    <!-- <item href="text/acknowledgements.xhtml" id="acknowledgements" media-type="application/xhtml+xml" /> -->
+    <!-- <item href="Images/image-01.jpg" id="image-01" media-type="image/jpeg" /> -->
+    <!-- Legacy toc -->
+    <item href="toc.ncx" id="toc.ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+
+  <spine toc="toc.ncx">
+    <!-- <itemref idref="00_cover" /> -->
+    <itemref idref="frontmatter" />
+    <!-- <itemref idref="toc" /> -->
+    <!-- <itemref idref="foreword" /> -->
+    <!-- <itemref idref="dedication" /> -->
+    <!-- <itemref idref="introduction" /> -->
+    <itemref idref="chapter-1" />
+    <itemref idref="chapter-2" />
+    <itemref idref="chapter-3" />
+    <itemref idref="chapter-4" />
+    <!-- <itemref idref="endnotes" /> -->
+    <!-- <itemref idref="acknowledgements" /> -->
+  </spine>
+
+  <!-- GUIDE (optional, recommended by Apple)
+
+        The guide lets you specify the role of the book's files.
+
+        Available tags: cover, title-page, toc, index, glossary, acknowledgements, bibliography,
+        colophon, copyright-page, dedication, epigraph, foreword, loi (list of illustrations),
+        lot (list of tables), notes, preface, and text.
+
+        http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6
+
+       -->
+  <guide>
+    <!-- <reference href="text/cover.xhtml" title="Cover" type="cover" /> -->
+    <!-- <reference href="text/toc.xhtml" title="Table of Contents" type="toc" /> -->
+    <reference href="text/01_frontmatter.xhtml" type="copyright-page" />
+    <!-- <reference href="text/foreword.xhtml" type="foreword" /> -->
+    <!-- <reference href="text/dedication.xhtml" type="dedication" /> -->
+    <!-- <reference href="text/introduction.xhtml" type="text" /> -->
+    <reference href="text/11_chapter01.xhtml" type="text" />
+    <reference href="text/12_chapter02.xhtml" type="text" />
+    <reference href="text/13_chapter03.xhtml" type="text" />
+    <reference href="text/14_chapter04.xhtml" type="text" />
+    <!-- <reference href="text/endnotes.xhtml" type="notes" /> -->
+    <!-- <reference href="text/acknowledgements.xhtml" type="acknowledgements" /> -->
+  </guide>
+
+</package>
