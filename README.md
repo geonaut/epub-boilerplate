@@ -10,9 +10,9 @@
 
 ## Gallery
 
-<img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png" width="250">
-<img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png" width="250">
-<img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_ouput.png" width="250">
+| Chapter 1 | Frontmatter | Script |
+| --- | --- | --- |
+| <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png" width="250"> | <img src="https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_output.png" width="250"> |
 
 ## Style Guide
 
