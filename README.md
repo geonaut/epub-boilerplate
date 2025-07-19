@@ -9,9 +9,11 @@
 * Separate CSS for base, frontmatter, bodymatter
 
 ## Gallery
-![chapter_1][https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png]
-![frontmatter][https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png]
-![script][https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_ouput.png]
+![Chapter1](https://github.com/geonaut/epub-boilerplate/blob/main/gallery/chapter_1_screenshot.png "Chapter1")
+
+![frontmatter](https://github.com/geonaut/epub-boilerplate/blob/main/gallery/frontmatter_screenshot.png "Frontmatter")
+
+![script](https://github.com/geonaut/epub-boilerplate/blob/main/gallery/script_ouput.png "Script")
 
 ## Style Guide
 
