@@ -8,6 +8,9 @@
 * Minimal CSS
 * Separate CSS for base, frontmatter, bodymatter
 
+## Gallery
+![alt text][logo]
+
 ## Style Guide
 
 * 12pt Times New Roman
