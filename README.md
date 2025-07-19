@@ -36,6 +36,8 @@ The epub name is `book` and this is hardcoded into the scripts.
 `./publish` to create book.epub in the root folder
 `./publish -c` to include an epub check, using the standard epubchecker
 
+Warning! The publish script deletes the previous book.epub file each time you generate a new one. I suggest you use git to track your text changes, and consider the ebook a disposable output file.
+
 ## xhtml Style
 
 Code is formatted using Prettier VSCode plugin
