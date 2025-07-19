@@ -2,11 +2,11 @@
 
 ## Features
 
-* ePub v3.2 compliant book template
+* ePub v3.2 compliant book template, validated against the ePub standard with [epubchecker](https://www.w3.org/publishing/epubcheck/)
 * Word count auto-inserted in the frontmatter
 * ePub generation date auto-inserted into front-matter
 * Minimal CSS
-* Separate CSS for front/bodymatter
+* Separate CSS for base, frontmatter, bodymatter
 
 ## Style Guide
 
@@ -21,12 +21,14 @@
 
 ## Setup
 
-* Run `build first_setup.sh` to install a local version of Java (JRE) and download the epubchecker java file epuchecker.jar
+* Run `build first_setup.sh` to install a local version of Java (JRE) and download the epubchecker java file epuchecker.jar. This will put a copy of the Java JRE and the epubchecker .jar in a `bin` folder
 
 ## Usage
 
-`./publish book` to create book.epub in the root folder
-`./publish book -c` to include an epub check, using the standard epubchecker
+The epub name is `book` and this is hardcoded into the scripts.
+
+`./publish` to create book.epub in the root folder
+`./publish -c` to include an epub check, using the standard epubchecker
 
 ## xhtml Style
 
