@@ -10,16 +10,14 @@ build/timestamp.sh
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Timestamp set${RESET}"
 else
-    echo -e "${RED}Timestamp failed${RESET}"
-    exit 1
+    echo -e "${YELLOW}Warning - Timestamp insertion failed$. Continuing...{RESET}"
 fi
 
-build/wc.sh book.epub
+build/wordcount.sh book.epub
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Wordcount set${RESET}"
 else
-    echo -e "${RED}Word count failed${RESET}"
-    exit 1
+    echo -e "${YELLOW}Appending word count insertion failed. Continuing...${RESET}"
 fi
 
 rm -f book.epub
