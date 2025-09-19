@@ -6,6 +6,16 @@ YELLOW='\e[33m'
 BLUE='\e[34m'
 RESET='\e[0m'
 
+if [ -n "$BASH_VERSION" ]; then
+    echo "This script is running in Bash, which is not supported"
+    exit 1
+elif [ -n "$ZSH_VERSION" ]; then
+    echo "This script is running in Zsh."
+else
+    echo "This script is running in an unknown shell."
+    exit 1
+fi
+
 build/timestamp.sh
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Timestamp set${RESET}"
@@ -27,8 +37,13 @@ zip -qXr9D "../book.epub" * -x "*.git*" -x "*.DS_Store"
 
 echo -e "${GREEN}ePub generated OK${RESET}"
 
+cd ..
+java_path="$(ls -d bin/Java/jdk*)/Contents/Home/bin/java"
+echo "Using Java at path: $java_path"
+"$java_path" --version
+
 if [[ $1 = "-c" ]]; then
-    ../bin/Java/jdk-24.0.2.jdk/Contents/Home/bin/java -jar ../bin/epubcheck-5.2.1/epubcheck.jar ../book.epub
+    "$java_path" -jar bin/epubcheck-5.2.1/epubcheck.jar book.epub
 else
     echo -e "${YELLOW}Skipping ePub check...${RESET}"
 fi
