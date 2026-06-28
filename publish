@@ -1,52 +1,71 @@
 #!/bin/zsh
 
+set -u
+
 RED='\e[31m'
 GREEN='\e[32m'
 YELLOW='\e[33m'
 BLUE='\e[34m'
 RESET='\e[0m'
 
-if [ -n "$BASH_VERSION" ]; then
+if [ -n "${BASH_VERSION:-}" ]; then
     echo "This script is running in Bash, which is not supported"
     exit 1
-elif [ -n "$ZSH_VERSION" ]; then
+elif [ -n "${ZSH_VERSION:-}" ]; then
     echo "This script is running in Zsh."
 else
     echo "This script is running in an unknown shell."
     exit 1
 fi
 
+# --- Update frontmatter metadata (non-fatal) --------------------------------
 build/timestamp.sh
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Timestamp set${RESET}"
 else
-    echo -e "${YELLOW}Warning - Timestamp insertion failed$. Continuing...{RESET}"
+    echo -e "${YELLOW}Warning: timestamp insertion failed. Continuing...${RESET}"
 fi
 
-build/wordcount.sh book.epub
+build/wordcount.sh
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Wordcount set${RESET}"
 else
-    echo -e "${YELLOW}Appending word count insertion failed. Continuing...${RESET}"
+    echo -e "${YELLOW}Warning: word count insertion failed. Continuing...${RESET}"
 fi
 
 rm -f book.epub
-cd book
+cd book || { echo -e "${RED}Cannot enter book/ directory${RESET}"; exit 1; }
 zip -q0X "../book.epub" mimetype
-zip -qXr9D "../book.epub" * -x "*.git*" -x "*.DS_Store"
+zip -qXr9D "../book.epub" * -x mimetype -x "*.git*" -x "*.DS_Store"
+cd ..
 
 echo -e "${GREEN}ePub generated OK${RESET}"
 
-cd ..
-java_path="$(ls -d bin/Java/jdk*)/Contents/Home/bin/java"
+# --- Validate (only with -c) ------------------------------------------------
+if [[ "${1:-}" != "-c" ]]; then
+    echo -e "${YELLOW}Skipping ePub check...${RESET}"
+    echo -e "${GREEN}Script complete${RESET}"
+    exit 0
+fi
+
+jdk_dirs=(bin/Java/jdk*(N))
+if (( ${#jdk_dirs} == 0 )); then
+    echo -e "${RED}No JDK found under bin/Java. Run build/first_setup.sh first.${RESET}"
+    exit 1
+fi
+java_path="${jdk_dirs[1]}/Contents/Home/bin/java"
+if [[ ! -x "$java_path" ]]; then
+    echo -e "${RED}Java not executable at $java_path. Run build/first_setup.sh.${RESET}"
+    exit 1
+fi
+
 echo "Using Java at path: $java_path"
 "$java_path" --version
 
-if [[ $1 = "-c" ]]; then
-    "$java_path" -jar bin/epubcheck-5.2.1/epubcheck.jar book.epub
+"$java_path" -jar bin/epubcheck-5.2.1/epubcheck.jar book.epub
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}Script complete - EPUB valid${RESET}"
 else
-    echo -e "${YELLOW}Skipping ePub check...${RESET}"
+    echo -e "${RED}Script complete - epubcheck reported problems${RESET}"
+    exit 1
 fi
-
-echo -e "${GREEN}Script complete${RESET}"
-

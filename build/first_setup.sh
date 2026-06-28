@@ -17,7 +17,8 @@ fi
 
 echo -e "${BLUE}Setting up binaries${RESET}"
 
-if [ -x "$(ls -d bin/Java/jdk*)/Contents/Home/bin/java" ]; then
+jdk_dirs=(bin/Java/jdk*(N))
+if (( ${#jdk_dirs} )) && [ -x "${jdk_dirs[1]}/Contents/Home/bin/java" ]; then
     echo -e "${GREEN}Java already available${RESET}"
 else
     echo -e "${RED}Java not found. Downloading...${RESET}"
@@ -38,11 +39,12 @@ else
     rm bin/Java/jdk.tar.gz
 fi
 
-java_path="$(ls -d bin/Java/jdk*)/Contents/Home/bin/java"
+jdk_dirs=(bin/Java/jdk*(N))
+java_path="${jdk_dirs[1]}/Contents/Home/bin/java"
 echo "Using Java at path: $java_path"
 "$java_path" --version
 
-$java_path -jar bin/epubcheck-5.2.1/epubcheck.jar --version
+"$java_path" -jar bin/epubcheck-5.2.1/epubcheck.jar --version
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}epubchecker already available${RESET}"
     echo -e "${GREEN}Setup complete${RESET}"
@@ -53,7 +55,8 @@ else
     curl -L "https://github.com/w3c/epubcheck/releases/download/v5.2.1/epubcheck-5.2.1.zip" -o "epub.zip"
     unzip "epub.zip" -d bin
     rm epub.zip
-    bin/Java/jdk-24.0.2.jdk/Contents/Home/bin/java -jar bin/epubcheck-5.2.1/epubcheck.jar --version
+    "$java_path" -jar bin/epubcheck-5.2.1/epubcheck.jar --version
+    echo -e "${GREEN}Setup complete${RESET}"
 fi
 
 
